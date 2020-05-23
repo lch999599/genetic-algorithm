@@ -11,6 +11,7 @@ Therefore our objective function is f(x) = a + 2b + 3c + 4d - 30
 #### Steps for performing Genetic Algorithm
 
 1. **Initialize the population**
+
 Every chromosome is a potential solution to the above problem. So each chromosome should contain 4 variables, representing `a`, `b`, `c` and `d` respectievely.
 
 Let's generate a population of chromosomes. The values of each variable is generated randomly.
@@ -27,6 +28,7 @@ Chromosome [6] = a b c d ] = [20;05;17;01]
 Here we have randomly initialized 6 chromosomes
 
 2. **Evaluation**
+
 Now we evaluate the chromosomes based on the objective function and their fitness values (*`fitness = 1 / obj_fn`*)
 
 ```
@@ -50,6 +52,7 @@ Fitness [6] = 0.0179
 ```
 
 3. **Selection**
+
 Here we perform Tournament based selection strategy. There will a `n` tournaments (`n=total_population`). In each tournament, we randomly select 2 or more candidates. Then we select the candidate with highest fitness value. When the tournament ends, we get a new population of 6 members, that may or may not contain repeated elements.
 
 ```
@@ -64,6 +67,7 @@ New_Chromosome [6] = a b c d ] = [12;05;23;08]
 Let's say this is our new population
 
 4. **Cross Over**
+
 This is the process of creating offsprings from parents. We already have parents that survived a tournament. Now we need to create children to make them perform better. For crossover, we need to set a parameter crossover-rate `cr`. Let's assume we set `cr` to 0.25. Now we need to generate `6 (population_size)` random numbers, R.
 
 ```
@@ -93,7 +97,8 @@ Chromosome [5] = Chromosome [5] >< Chromosome [1]
     = [01;04;17;01]
 ```
 
-4. **Mutation**
+5. **Mutation**
+
 To determine the number of mutations, we need mutation-rate `mr`. 
 
 
@@ -129,4 +134,4 @@ CROSSOVER_RATE = 0.7
 MUTATION_RATE = 0.1
 ITERATIONS = 1200
 ```
-Even though we set `ITERATIONS=1200`, we received a solution at `generation 64`. If we change the parameters, we could reach the solutions at a different generation. 
+Even though we set `ITERATIONS=1200`, we received a solution at `generation 64`. If we change the parameters, we could reach the solution at a different generation. 
